@@ -14,7 +14,7 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $data = Persona::latest()->paginate(5);
+        $data = Persona::all();
     
         return view('persona.index',compact('data'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -54,7 +54,7 @@ class PersonaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Persona  $post
      * @return \Illuminate\Http\Response
      */
     public function show(Persona $persona)
@@ -82,11 +82,7 @@ class PersonaController extends Controller
      */
     public function update(Request $request, Persona $persona)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'apellido' => 'required',
-        ]);
-    
+        
         $persona->update($request->all());
     
         return redirect()->route('persona.index')

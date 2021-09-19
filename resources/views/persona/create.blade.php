@@ -48,7 +48,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Pais</strong>
-                <input type="text" class="form-control" style="height:150px" name="fecha_nacimiento" placeholder="Enter Country">
+                <input type="text" class="form-control" style="height:150px" name="codigo_pais" placeholder="Enter Country">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

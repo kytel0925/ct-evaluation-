@@ -24,10 +24,10 @@
            </div>
        @endif
      
-       <form action="{{ route('persona.edit',$persona->id) }}" method="PUT">
-           @csrf
+       <form action="{{ route('persona.update',$persona->id) }}" method="POST">
+          
            @method('put')
-      
+           @csrf
             <div class="row">
                <div class="col-xs-12 col-sm-12 col-md-12">
                    <div class="form-group">
