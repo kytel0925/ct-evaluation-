@@ -234,6 +234,7 @@ class Generic extends Controller
     }
     //FUNCION RECURSIVA PARA EL TEST DE LA RANITA 
     private function jumping_frog($array){
+        //LIMITANTE: EN CASO DE QUE EL ARREGLO NO CUMPLA CON UN TAMNIO MENOR A 500 O MAYOR A 1 SE DEVUELVE FALSE
         if(count($array)> 500 && count($array)<1){
             return false;
         }
@@ -248,6 +249,10 @@ class Generic extends Controller
     private function jumping_frog_aux($array, $indice, $saltos){        
         if($indice >= count($array)-1){
             return true;
+        }
+        //LIMITANTE: EN CASO DE QUE NO SE CUMPLA NO SE TOMA ESA HOJA PARA PODER SALTAR 
+        if($array[$indice]<0 || $array[$indice]>10){
+            return false;
         }
         if($saltos == 0){
             return false;
