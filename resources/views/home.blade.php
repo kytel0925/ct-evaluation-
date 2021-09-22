@@ -73,6 +73,7 @@
           Phase 2
           <div>
           <a class="btn btn-primary" href="{{ route('persona.index') }}">CRUD</a>
+          <a class="btn btn-primary" href="{{ route('ranita') }}">Jumping Frog Test</a>
           </div>
           
          

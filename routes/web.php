@@ -31,6 +31,7 @@ Route::get('/', function () {
 
     return view('home', compact('questions'));
 });
+Route::get('ranita', [Generic::class, 'ranita'])->name('ranita');
 Route::resource('persona', PersonaController::class);
 Route::get('/questions/1.1', [Generic::class, 'question_1'])->name('question-1.1');
 Route::get('/questions/1.2', [Generic::class, 'question_2'])->name('question-1.2');

@@ -215,7 +215,52 @@ class Generic extends Controller
         }
         return $resultado; 
     }
+    /**
+     * @array arreglo de prueba para el test de la ranita
+     */
+    protected $jumps=[3,1,1,1];
+    protected $jumps1=[1,0,1];
+    protected $jumps2 = [2,2,1,0,5,2,2,5,1,5,4,0,5,5,1,4,5,5,2,2,3,0,3,0,1,3,3,1,0,3,2,2,4,1,4,4,2,2,5,2,4,1,4,0,5,1,5,5,3,4,3,2,4,0,3,0,3,0,0,5,3,3,3,1,0,2,1,1,5,0,3,1,3,0,4,5,1,2,3,4,1,4,4,3,1,0,3,4,2,5,5,0,5,4,0,2,2,5,3,4]; 
 
+    public function ranita(){
+        $jumps=[3,1,1,1];
+        $jumps1=[1,0,1];
+        $jumps2 = [2,2,1,0,5,2,2,5,1,5,4,0,5,5,1,4,5,5,2,2,3,0,3,0,1,3,3,1,0,3,2,2,4,1,4,4,2,2,5,2,4,1,4,0,5,1,5,5,3,4,3,2,4,0,3,0,3,0,0,5,3,3,3,1,0,2,1,1,5,0,3,1,3,0,4,5,1,2,3,4,1,4,4,3,1,0,3,4,2,5,5,0,5,4,0,2,2,5,3,4]; 
+        $arreglos = [$jumps,$jumps1,$jumps2];
+        $arreglo_a_escoger = rand(0,2);
+        echo "Arreglo: ";
+        print_r($arreglos[$arreglo_a_escoger]);
+        $this->jumping_frog($arreglos[$arreglo_a_escoger]);
+    }
+    //FUNCION RECURSIVA PARA EL TEST DE LA RANITA 
+    private function jumping_frog($array){
+        if(count($array)> 500 && count($array)<1){
+            return false;
+        }
+        if($this->jumping_frog_aux($array, 0, $array[0])){
+            echo "true";
+        }else{
+            echo "false";
+        }
+    }
+
+    //FUNCION AUXILIAR PARA EL TEST DE LA RANITA
+    private function jumping_frog_aux($array, $indice, $saltos){        
+        if($indice >= count($array)-1){
+            return true;
+        }
+        if($saltos == 0){
+            return false;
+        }
+        if(($indice+$saltos) >= count($array)-1){
+            return true;
+        }
+        if($this->jumping_frog_aux($array,$indice+$saltos,$array[$saltos + $indice])){
+            return true;
+        }else{
+            return $this->jumping_frog_aux($array,$indice,$saltos-1);
+        }
+    }
     //Metodo que carga las identificaciones a un arreglo
     private function identifications(){
         $identifications = $this->cargarArchivo("http://developers.ctdesarrollo.org/triofrio/json-dbs/identifications.json");
