@@ -21,6 +21,7 @@
           </v-tab>
           <v-tab key="phase-2">
             Phase 2
+            
           </v-tab>
         </v-tabs>
       </template>
@@ -70,6 +71,12 @@
       <v-tab-item key="phase-2">
         <v-card>
           Phase 2
+          <div>
+          <a class="btn btn-primary" href="{{ route('persona.index') }}">CRUD</a>
+          <a class="btn btn-primary" href="{{ route('ranita') }}">Jumping Frog Test</a>
+          </div>
+          
+         
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -102,4 +109,5 @@
             }                
         });
     </script>
+    
 @show
